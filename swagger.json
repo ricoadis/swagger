@@ -8,9 +8,7 @@
   "servers": [
     {
       "url": "https://dev.nicepay.co.id/nicepay/v1.0/access-token"
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
-      "Access-Control-Max-Age": 2592000,
+      Access-Control-Allow-Headers: Content-Type, api_key, Authorization
     }
   ],
   "tags": [
