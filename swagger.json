@@ -8,12 +8,9 @@
   "servers": [
     {
       "url": "https://dev.nicepay.co.id/nicepay/v1.0/access-token"
-      const headers = {
-      // Ganti domain ini
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
       "Access-Control-Max-Age": 2592000,
-    }
     }
   ],
   "tags": [
