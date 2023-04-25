@@ -7,6 +7,10 @@
   },
   "servers" : [ {
     "url" : "https://dev.nicepay.co.id/nicepay/v1.0/access-token"
+  }, {
+    "url" : "https://staging.nicepay.co.id/nicepay/v1.0/access-token/"
+  }, {
+    "url" : "https://www.nicepay.co.id/nicepay/v1.0/access-token/"
   } ],
   "tags" : [ {
     "name" : "Request Access Token",
@@ -17,7 +21,7 @@
       "post" : {
         "tags" : [ "Request Access Token" ],
         "summary" : "REQUEST ACCESS TOKEN",
-        "operationId" : "REQUESTACCESSTOKEN",
+        "operationId" : "REQUEST ACCESS TOKEN",
         "parameters" : [ {
           "name" : "X-SIGNATURE",
           "in" : "header",
@@ -27,7 +31,7 @@
           "explode" : false,
           "schema" : {
             "type" : "string",
-            "example" : "CRjHuskREH/cbqIo2Mnm1yzj8Ab9dfQHT3/j+e0rxprIm4ER8urUeJ9A6PvrWfTIf7hWmOjTNTLTCmTT/tNwTa6RNskKKwK6+zGVsYehDEPI5WJdDuMS2LV5MjMEg0tx8VKT66WjOIeoyhkXLuYMhsYydFajgZ0sOBupGGKQ/+k="
+            "example" : "Bo7OlSFPU0yADUBWjBmOc4ELo79bXK3PkhHN2N7DEZUOA3/uzMwdSJ497bBfaB3lVbPh1w3CzpkwEYwRh1CEpeYKrW8wqvfhWGo6LmF3IuBhMxkUTc1Hy9dqLAUsOBljp9FmUdxDQwYussoX9KmYQwT6Kt2sgpv6e+ferxiONCk="
           }
         }, {
           "name" : "X-CLIENT-KEY",
@@ -38,7 +42,7 @@
           "explode" : false,
           "schema" : {
             "type" : "string",
-            "example" : "TNICEEW051"
+            "example" : "IONPAYTEST"
           }
         }, {
           "name" : "X-TIMESTAMP",
@@ -49,7 +53,7 @@
           "explode" : false,
           "schema" : {
             "type" : "string",
-            "example" : "2022-03-20T12:59:59+07:00"
+            "example" : "2022-03-28T23:59:59+07:00"
           }
         } ],
         "requestBody" : {
@@ -69,15 +73,40 @@
         },
         "responses" : {
           "200" : {
-            "description" : ""
+            "description" : "Example Response Request Token",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/200"
+                },
+                "example" : {
+                  "description" : "Example Response Request Token",
+                  "value" : {
+                    "responseCode" : "0000",
+                    "responseMessage" : "Successful",
+                    "accessToken" : "Xy8duZzAvv9bwDXxRxcb89tsuvk4MF4kx4lGfE4aCRVxR7XdERhbe1",
+                    "tokenType" : "Bearer",
+                    "expiresIn" : "900"
+                  }
+                }
+              }
+            }
           }
-        },
-        "deprecated" : false
+        }
       }
     }
   },
   "components" : {
     "schemas" : {
+      "200" : {
+        "title" : "Successful response",
+        "type" : "object",
+        "properties" : {
+          "Request-Access-Token" : {
+            "$ref" : "#/components/schemas/Request-Access-Token"
+          }
+        }
+      },
       "Request-Access-Token" : {
         "title" : "Request Access Token",
         "required" : [ "grantType" ],
