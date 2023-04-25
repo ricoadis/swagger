@@ -76,7 +76,9 @@
             "description" : "Example Response Request Token",
             "content" : {
               "application/json" : {
-                "schema" : { },
+                "schema" : {
+                  "$ref" : "#/components/schemas/200"
+                },
                 "example" : {
                   "description" : "Example Response Request Token",
                   "value" : {
@@ -96,6 +98,15 @@
   },
   "components" : {
     "schemas" : {
+      "200" : {
+        "title" : "Successful response",
+        "type" : "object",
+        "properties" : {
+          "Request-Access-Token" : {
+            "$ref" : "#/components/schemas/Request-Access-Token"
+          }
+        }
+      },
       "Request-Access-Token" : {
         "title" : "Request Access Token",
         "required" : [ "grantType" ],
