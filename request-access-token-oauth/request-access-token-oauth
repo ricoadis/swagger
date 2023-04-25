@@ -35,20 +35,26 @@
         "responses" : {
           "200" : {
             "description" : "Response Parameters Request Token",
-            "content" : {
-              "application/json" : {
-                "schema" : { },
-                "examples" : {
-                  "Response Request Token" : {
-                    "description" : "Example JSON Response",
-                    "value" : {
-                      "responseCode" : "0000",
-                      "responseMessage" : "Successful",
-                      "accessToken" : "Xy8duZzAvv9bwDXxRxcb89tsuvk4MF4kx4lGfE4aCRVxR7XdERhbe1",
-                      "tokenType" : "Bearer",
-                      "expiresIn" : "900"
-                    }
-                  }
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string"
                 }
               }
             }
