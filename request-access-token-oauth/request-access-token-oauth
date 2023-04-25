@@ -1,0 +1,131 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Merchant Request Token API",
+    "description" : "OAUTH-Signature",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://dev.nicepay.co.id/nicepay/v1.0/access-token/"
+  }, {
+    "url" : "https://staging.nicepay.co.id/nicepay/v1.0/access-token/"
+  }, {
+    "url" : "https://www.nicepay.co.id/nicepay/v1.0/access-token/"
+  } ],
+  "paths" : {
+    "/b2b" : {
+      "post" : {
+        "tags" : [ "Request Token API" ],
+        "summary" : "Request Token",
+        "description" : "Algoritma asymmetric signature => SHA256withRSA (Private_Key, stringToSign) stringToSign = client_ID + \"|\" + X-TIMESTAMP",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RequestToken"
+              },
+              "examples" : {
+                "Request Token" : {
+                  "description" : "Example Request Token Success",
+                  "value" : {
+                    "grantType" : "client_credentials",
+                    "additionalInfo" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Response Parameters Request Token",
+            "content" : {
+              "application/json" : {
+                "schema" : { },
+                "examples" : {
+                  "Response Request Token" : {
+                    "description" : "Example JSON Response",
+                    "value" : {
+                      "responseCode" : "0000",
+                      "responseMessage" : "Successful",
+                      "accessToken" : "Xy8duZzAvv9bwDXxRxcb89tsuvk4MF4kx4lGfE4aCRVxR7XdERhbe1",
+                      "tokenType" : "Bearer",
+                      "expiresIn" : "900"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "X-SIGNATURE" : [ ],
+          "X-CLIENT-KEY" : [ ],
+          "X-TIMESTAMP" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "RequestToken" : {
+        "title" : "Request Token",
+        "type" : "object",
+        "properties" : {
+          "grantType" : {
+            "type" : "string",
+            "description" : "Only “client_credentials”",
+            "example" : "client_credentials"
+          },
+          "additionalInfo" : {
+            "type" : "object",
+            "description" : "",
+            "example" : { }
+          },
+          "responseCode" : {
+            "type" : "string",
+            "description" : "Response Code",
+            "example" : "0000"
+          },
+          "responseMessage" : {
+            "type" : "string",
+            "description" : "Response Message",
+            "example" : "Successful"
+          },
+          "accessToken" : {
+            "type" : "string",
+            "description" : "A string representing an authorization issued to the client that used to access protected resources. (\"2048\")",
+            "example" : "Xy8duZzAvv9bwDXxRxcb89tsuvk4MF4kx4lGfE4aCRVxR7XdERhbe1"
+          },
+          "tokenType" : {
+            "type" : "string",
+            "description" : "The access token type",
+            "example" : "Bearer"
+          },
+          "expiresIn" : {
+            "type" : "string",
+            "description" : "Session expiry in seconds => \"900\" (\"15\" minutes)",
+            "example" : "900"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "X-SIGNATURE" : {
+        "type" : "apiKey",
+        "name" : "X-SIGNATURE",
+        "in" : "header"
+      },
+      "X-CLIENT-KEY" : {
+        "type" : "apiKey",
+        "name" : "X-CLIENT-KEY",
+        "in" : "header"
+      },
+      "X-TIMESTAMP" : {
+        "type" : "apiKey",
+        "name" : "X-TIMESTAMP",
+        "in" : "header"
+      }
+    }
+  }
+}
