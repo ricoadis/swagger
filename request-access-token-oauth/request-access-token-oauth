@@ -58,7 +58,9 @@
           "X-SIGNATURE" : [ ],
           "X-CLIENT-KEY" : [ ],
           "X-TIMESTAMP" : [ ],
-          "Access-Control-Allow-Origin" : [ ]
+          "Access-Control-Allow-Origin" : [ ],
+          "Access-Control-Allow-Methods" : [ ],
+          "Access-Control-Allow-Headers" : [ ]
         } ]
       }
     }
@@ -126,6 +128,16 @@
       "Access-Control-Allow-Origin" : {
         "type" : "apiKey",
         "name" : "Access-Control-Allow-Origin",
+        "in" : "header"
+      },
+      "Access-Control-Allow-Methods" : {
+        "type" : "apiKey",
+        "name" : "Access-Control-Allow-Methods",
+        "in" : "header"
+      },
+      "Access-Control-Allow-Headers" : {
+        "type" : "apiKey",
+        "name" : "Access-Control-Allow-Headers",
         "in" : "header"
       }
     }
