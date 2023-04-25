@@ -58,9 +58,8 @@
           "X-SIGNATURE" : [ ],
           "X-CLIENT-KEY" : [ ],
           "X-TIMESTAMP" : [ ],
-          "Access-Control-Allow-Origin" : [ ],
-          "Access-Control-Allow-Methods" : [ ],
-          "Access-Control-Allow-Headers" : [ ]
+          "x-swagger-router-controller" : [ "b2b" ],
+          "x-swagger-router-method" : [ "post" ]
         } ]
       }
     }
@@ -125,19 +124,14 @@
         "name" : "X-TIMESTAMP",
         "in" : "header"
       },
-      "Access-Control-Allow-Origin" : {
+      "x-swagger-router-controller" : {
         "type" : "apiKey",
-        "name" : "Access-Control-Allow-Origin",
+        "name" : "x-swagger-router-controller",
         "in" : "header"
       },
-      "Access-Control-Allow-Methods" : {
+      "x-swagger-router-method" : {
         "type" : "apiKey",
-        "name" : "Access-Control-Allow-Methods",
-        "in" : "header"
-      },
-      "Access-Control-Allow-Headers" : {
-        "type" : "apiKey",
-        "name" : "Access-Control-Allow-Headers",
+        "name" : "x-swagger-router-method",
         "in" : "header"
       }
     }
