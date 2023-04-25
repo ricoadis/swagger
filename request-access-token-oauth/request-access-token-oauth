@@ -7,10 +7,6 @@
   },
   "servers" : [ {
     "url" : "https://dev.nicepay.co.id/nicepay/v1.0/access-token/"
-  }, {
-    "url" : "https://staging.nicepay.co.id/nicepay/v1.0/access-token/"
-  }, {
-    "url" : "https://www.nicepay.co.id/nicepay/v1.0/access-token/"
   } ],
   "paths" : {
     "/b2b" : {
