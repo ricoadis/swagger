@@ -57,9 +57,7 @@
         "security" : [ {
           "X-SIGNATURE" : [ ],
           "X-CLIENT-KEY" : [ ],
-          "X-TIMESTAMP" : [ ],
-          "x-swagger-router-controller" : [ "b2b" ],
-          "x-swagger-router-method" : [ "post" ]
+          "X-TIMESTAMP" : [ ]
         } ]
       }
     }
@@ -122,16 +120,6 @@
       "X-TIMESTAMP" : {
         "type" : "apiKey",
         "name" : "X-TIMESTAMP",
-        "in" : "header"
-      },
-      "x-swagger-router-controller" : {
-        "type" : "apiKey",
-        "name" : "x-swagger-router-controller",
-        "in" : "header"
-      },
-      "x-swagger-router-method" : {
-        "type" : "apiKey",
-        "name" : "x-swagger-router-method",
         "in" : "header"
       }
     }
