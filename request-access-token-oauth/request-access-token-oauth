@@ -61,10 +61,10 @@
           }
         },
         "security" : {
-          - Authorization: [ ]
-          - X-SIGNATURE : [ ]
-          - X-CLIENT-KEY : [ ]
-          - X-TIMESTAMP : [ ]
+          - "Authorization" : [ ]
+          - "X-SIGNATURE" : [ ]
+          - "X-CLIENT-KEY" : [ ]
+          - "X-TIMESTAMP" : [ ]
         }
       }
     }
