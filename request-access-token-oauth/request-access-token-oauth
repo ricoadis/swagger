@@ -60,11 +60,12 @@
             }
           }
         },
-        "security" : [ {
-          "X-SIGNATURE" : [ ],
-          "X-CLIENT-KEY" : [ ],
-          "X-TIMESTAMP" : [ ]
-        } ]
+        "security" : {
+          - Authorization: [ ]
+          - X-SIGNATURE : [ ]
+          - X-CLIENT-KEY : [ ]
+          - X-TIMESTAMP : [ ]
+        }
       }
     }
   },
@@ -113,6 +114,11 @@
       }
     },
     "securitySchemes" : {
+      "Authorization" : {
+        "type": "apiKey"
+        "in": "header"
+        "name": "Authorization"
+      },
       "X-SIGNATURE" : {
         "type" : "apiKey",
         "name" : "X-SIGNATURE",
