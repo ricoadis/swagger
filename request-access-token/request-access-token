@@ -12,10 +12,6 @@
   }, {
     "url" : "https://www.nicepay.co.id/nicepay/v1.0/access-token/"
   } ],
-  "tags" : [ {
-    "name" : "Request Access Token",
-    "description" : ""
-  } ],
   "paths" : {
     "/b2b" : {
       "post" : {
@@ -76,9 +72,7 @@
             "description" : "Example Response Request Token",
             "content" : {
               "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/200"
-                },
+                "schema" : { },
                 "example" : {
                   "description" : "Example Response Request Token",
                   "value" : {
@@ -98,15 +92,6 @@
   },
   "components" : {
     "schemas" : {
-      "200" : {
-        "title" : "Successful response",
-        "type" : "object",
-        "properties" : {
-          "Request-Access-Token" : {
-            "$ref" : "#/components/schemas/Request-Access-Token"
-          }
-        }
-      },
       "Request-Access-Token" : {
         "title" : "Request Access Token",
         "required" : [ "grantType" ],
