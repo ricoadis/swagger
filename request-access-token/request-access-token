@@ -1,16 +1,16 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "title" : "REQUEST ACCESS TOKEN",
+    "title" : "REQUEST ACCESS TOKEN 123456",
     "contact" : { },
     "version" : "1.0.0"
   },
   "servers" : [ {
     "url" : "https://dev.nicepay.co.id/nicepay/v1.0/access-token"
   }, {
-    "url" : "https://staging.nicepay.co.id/nicepay/v1.0/access-token/"
+    "url" : "https://staging.nicepay.co.id/nicepay/v1.0/access-token"
   }, {
-    "url" : "https://www.nicepay.co.id/nicepay/v1.0/access-token/"
+    "url" : "https://www.nicepay.co.id/nicepay/v1.0/access-token"
   } ],
   "paths" : {
     "/b2b" : {
