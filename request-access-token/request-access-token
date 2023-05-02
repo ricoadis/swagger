@@ -15,7 +15,7 @@
   "paths" : {
     "/b2b" : {
       "post" : {
-        "tags" : [ "Request Access Token ABCD" ],
+        "tags" : [ "Request Access Token" ],
         "summary" : "REQUEST ACCESS TOKEN",
         "operationId" : "REQUEST ACCESS TOKEN",
         "parameters" : [ {
