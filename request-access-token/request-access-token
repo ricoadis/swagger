@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "title" : "REQUEST ACCESS TOKEN 123456",
+    "title" : "REQUEST ACCESS TOKEN ABCD",
     "contact" : { },
     "version" : "1.0.0"
   },
