@@ -1,0 +1,283 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "CREATE VA",
+    "contact" : { },
+    "version" : "1.0.1"
+  },
+  "servers" : [ {
+    "url" : "https://dev.nicepay.co.id/nicepay/api/v1.0/transfer-va"
+  }, {
+    "url" : "https://staging.nicepay.co.id/nicepay/api/v1.0/transfer-va"
+  }, {
+    "url" : "https://www.nicepay.co.id/nicepay/api/v1.0/transfer-va"
+  } ],
+  "paths" : {
+    "/create-va" : {
+      "post" : {
+        "tags" : [ "Create VA" ],
+        "summary" : "CREATE VA",
+        "operationId" : "CREATE VA",
+        "parameters" : [ {
+          "name" : "X-TIMESTAMP",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "2023-04-27T23:59:59+07:00"
+          }
+        }, {
+          "name" : "X-SIGNATURE",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "ryAMsyOKI6uDStheQRo0c+5+gb+Y0gzoNOHR240GfmbT1t3IbT0KZF5X28gxxfcoHuAIAegYZHT1s+Z1PoEv8Q=="
+          }
+        }, {
+          "name" : "X-PARTNER-ID",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "IONPAYTEST"
+          }
+        }, {
+          "name" : "X-EXTERNAL-ID",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20230426230106"
+          }
+        }, {
+          "name" : "CHANNEL-ID",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "IONPAYTEST"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/createva_body"
+              },
+              "example" : {
+                "partnerServiceId" : "",
+                "customerNo" : "",
+                "virtualAccountNo" : "",
+                "virtualAccountName" : "Jhon Doe",
+                "trxId" : "2023123100000000000001",
+                "totalAmount" : {
+                  "value" : "10000.00",
+                  "currency" : "IDR"
+                },
+                "additionalInfo" : {
+                  "bankCd" : "BMRI",
+                  "goodsNm" : "John Doe",
+                  "dbProcessUrl" : "https://dev.nicepay.co.id/IONPAY_CLIENT/paymentResult.jsp",
+                  "vacctValidDt" : "",
+                  "vacctValidTm" : "",
+                  "msId" : "",
+                  "msFee" : "",
+                  "msFeeType" : "",
+                  "mbFee" : "",
+                  "mbFeeType" : ""
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Example Response Create VA",
+            "content" : {
+              "application/json" : {
+                "schema" : { },
+                "example" : {
+                  "description" : "Example Response Create VA",
+                  "value" : {
+                    "responseCode" : "2002700",
+                    "responseMessage" : "Successful",
+                    "virtualAccountData" : {
+                      "partnerServiceId" : "",
+                      "customerNo" : "",
+                      "virtualAccountNo" : "70014000091511466666",
+                      "virtualAccountName" : "Jhon Doe",
+                      "trxId" : "2023123100000000000001",
+                      "totalAmount" : {
+                        "value" : "10000.00",
+                        "currency" : "IDR"
+                      },
+                      "additionalInfo" : {
+                        "bankCd" : "BMRI",
+                        "tXidVA" : "IONPAYTEST02202304271511466666",
+                        "goodsNm" : "John Doe",
+                        "vacctValidDt" : "20230429",
+                        "vacctValidTm" : "151146",
+                        "msId" : "",
+                        "msFee" : "",
+                        "msFeeType" : "",
+                        "mbFee" : "",
+                        "mbFeeType" : ""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "Authorization" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Create-VA" : {
+        "title" : "Create-VA",
+        "required" : [ "bankCd", "currency", "dbProcessUrl", "goodsNm", "partnerServiceId", "trxId", "value", "virtualAccountName", "virtualAccountNo" ],
+        "type" : "object",
+        "properties" : {
+          "partnerServiceId" : {
+            "type" : "string"
+          },
+          "customerNo" : {
+            "type" : "string"
+          },
+          "virtualAccountNo" : {
+            "type" : "string"
+          },
+          "virtualAccountName" : {
+            "type" : "string"
+          },
+          "trxId" : {
+            "type" : "string"
+          },
+          "totalAmount" : {
+            "type" : "object"
+          },
+          "value" : {
+            "type" : "string"
+          },
+          "currency" : {
+            "type" : "string"
+          },
+          "additionalInfo" : {
+            "type" : "object"
+          },
+          "bankCd" : {
+            "type" : "string"
+          },
+          "goodsNm" : {
+            "type" : "string"
+          },
+          "dbProcessUrl" : {
+            "type" : "string"
+          },
+          "vacctValidDt" : {
+            "type" : "string"
+          },
+          "vacctValidTm" : {
+            "type" : "string"
+          },
+          "msId" : {
+            "type" : "string"
+          },
+          "msFee" : {
+            "type" : "string"
+          },
+          "msFeeType" : {
+            "type" : "string"
+          },
+          "mbFee" : {
+            "type" : "string"
+          },
+          "mbFeeType" : {
+            "type" : "string"
+          }
+        },
+        "example" : {
+          "partnerServiceId" : "",
+          "customerNo" : "",
+          "virtualAccountNo" : "",
+          "virtualAccountName" : "Jhon Doe",
+          "trxId" : "2023123100000000000001",
+          "totalAmount" : {
+            "value" : "10000.00",
+            "currency" : "IDR"
+          },
+          "additionalInfo" : {
+            "bankCd" : "BMRI",
+            "goodsNm" : "John Doe",
+            "dbProcessUrl" : "https://dev.nicepay.co.id/IONPAY_CLIENT/paymentResult.jsp",
+            "vacctValidDt" : "",
+            "vacctValidTm" : "",
+            "msId" : "",
+            "msFee" : "",
+            "msFeeType" : "",
+            "mbFee" : "",
+            "mbFeeType" : ""
+          }
+        }
+      },
+      "createva_body" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Create-VA"
+        }, {
+          "example" : {
+            "partnerServiceId" : "",
+            "customerNo" : "",
+            "virtualAccountNo" : "",
+            "virtualAccountName" : "Jhon Doe",
+            "trxId" : "2023123100000000000001",
+            "totalAmount" : {
+              "value" : "10000.00",
+              "currency" : "IDR"
+            },
+            "additionalInfo" : {
+              "bankCd" : "BMRI",
+              "goodsNm" : "John Doe",
+              "dbProcessUrl" : "https://dev.nicepay.co.id/IONPAY_CLIENT/paymentResult.jsp",
+              "vacctValidDt" : "",
+              "vacctValidTm\"" : "",
+              "msId" : "",
+              "msFee" : "",
+              "msFeeType" : "",
+              "mbFee" : "",
+              "mbFeeType" : ""
+            }
+          }
+        } ]
+      }
+    },
+    "securitySchemes" : {
+      "Authorization" : {
+        "type" : "http",
+        "scheme" : "bearer"
+      }
+    }
+  }
+}

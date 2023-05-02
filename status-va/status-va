@@ -1,0 +1,233 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "STATUS VA",
+    "contact" : { },
+    "version" : "1.0.1"
+  },
+  "servers" : [ {
+    "url" : "https://dev.nicepay.co.id/nicepay/api/v1.0/transfer-va/"
+  }, {
+    "url" : "https://staging.nicepay.co.id/nicepay/api/v1.0/transfer-va/"
+  }, {
+    "url" : "https://www.nicepay.co.id/nicepay/api/v1.0/transfer-va/"
+  } ],
+  "paths" : {
+    "/status" : {
+      "post" : {
+        "tags" : [ "Status VA" ],
+        "summary" : "STATUS VA",
+        "operationId" : "STATUS VA",
+        "parameters" : [ {
+          "name" : "X-TIMESTAMP",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "2023-04-27T23:59:59+07:00"
+          }
+        }, {
+          "name" : "X-SIGNATURE",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "ryAMsyOKI6uDStheQRo0c+5+gb+Y0gzoNOHR240GfmbT1t3IbT0KZF5X28gxxfcoHuAIAegYZHT1s+Z1PoEv8Q=="
+          }
+        }, {
+          "name" : "X-PARTNER-ID",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "IONPAYTEST"
+          }
+        }, {
+          "name" : "X-EXTERNAL-ID",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20230426230106"
+          }
+        }, {
+          "name" : "CHANNEL-ID",
+          "in" : "header",
+          "description" : "",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "IONPAYTEST"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/status_body"
+              },
+              "example" : {
+                "partnerServiceId" : "",
+                "customerNo" : "",
+                "virtualAccountNo" : "9912391111111111",
+                "inquiryRequestId" : "",
+                "totalAmount" : {
+                  "value" : "10000.00",
+                  "currency" : "IDR"
+                },
+                "trxId" : "2023123100000000000001",
+                "additionalInfo" : {
+                  "tXidVA" : "IONPAYTEST02202304281121027476"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Example Response Status VA",
+            "content" : {
+              "application/json" : {
+                "schema" : { },
+                "example" : {
+                  "description" : "Example Response Status VA",
+                  "value" : {
+                    "responseCode" : "2002700",
+                    "responseMessage" : "Successful",
+                    "virtualAccountData" : {
+                      "partnerServiceId" : "",
+                      "customerNo" : "",
+                      "virtualAccountNo" : "70014000091511466666",
+                      "inquiryRequestId" : "",
+                      "virtualAccountName" : "Jhon Doe",
+                      "totalAmount" : {
+                        "value" : "10000.00",
+                        "currency" : "IDR"
+                      },
+                      "trxId" : "2023123100000000000001",
+                      "transactionStatusDesc" : "Success",
+                      "latestTransactionStatus" : "00",
+                      "additionalInfo" : {
+                        "bankCd" : "BMRI",
+                        "tXidVA" : "IONPAYTEST02202304271511466666",
+                        "goodsNm" : "John Doe",
+                        "vacctValidDt" : "20230429",
+                        "vacctValidTm" : "151146",
+                        "msId" : "",
+                        "msFee" : "",
+                        "msFeeType" : "",
+                        "mbFee" : "",
+                        "mbFeeType" : ""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "Authorization" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "StatusVirtualAccount" : {
+        "title" : "General Request Virtual Account",
+        "required" : [ "currency", "inquiryRequestId", "partnerServiceId", "tXidVA", "trxId", "value", "virtualAccountName", "virtualAccountNo" ],
+        "type" : "object",
+        "properties" : {
+          "partnerServiceId" : {
+            "maxLength" : 20,
+            "type" : "string",
+            "description" : "Partner Service ID / Prefix"
+          },
+          "customerNo" : {
+            "maxLength" : 40,
+            "type" : "string",
+            "description" : "Customer Number"
+          },
+          "virtualAccountNo" : {
+            "maxLength" : 25,
+            "type" : "string",
+            "description" : "Virtual Account Number",
+            "example" : "9912391111111111"
+          },
+          "inquiryRequestId" : {
+            "maxLength" : 128,
+            "type" : "string",
+            "description" : "Unique identifier for inquiry"
+          },
+          "value" : {
+            "maxLength" : 12,
+            "type" : "string",
+            "description" : "Transaction Amount",
+            "example" : "10000.0"
+          },
+          "currency" : {
+            "maxLength" : 3,
+            "type" : "string",
+            "description" : "Currency",
+            "example" : "IDR"
+          },
+          "trxId" : {
+            "maxLength" : 40,
+            "type" : "string",
+            "description" : "Reference Number from Merchant",
+            "example" : "2020102900000000000001"
+          },
+          "tXidVA" : {
+            "maxLength" : 30,
+            "type" : "string",
+            "description" : "Transaction ID (Generated by Nicepay)",
+            "example" : "IONPAYTEST02202304271511466666"
+          }
+        }
+      },
+      "status_body" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/StatusVirtualAccount"
+        }, {
+          "example" : {
+            "partnerServiceId" : "",
+            "customerNo" : "",
+            "virtualAccountNo" : "9912391111111111",
+            "inquiryRequestId" : "",
+            "totalAmount" : {
+              "value" : "10000.00",
+              "currency" : "IDR"
+            },
+            "trxId" : "2023123100000000000001",
+            "additionalInfo" : {
+              "tXidVA" : "IONPAYTEST02202304281121027476"
+            }
+          }
+        } ]
+      }
+    },
+    "securitySchemes" : {
+      "Authorization" : {
+        "type" : "http",
+        "scheme" : "bearer"
+      }
+    }
+  }
+}
